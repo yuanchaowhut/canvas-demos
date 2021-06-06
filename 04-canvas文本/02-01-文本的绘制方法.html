@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本</title>
+    <style>
+        body{margin: 0;overflow: hidden}
+        #canvas{background: antiquewhite;}
+    </style>
+</head>
+<body>
+<!--123456-->
+<canvas id="canvas"></canvas>
+<script>
+    const canvas=document.getElementById('canvas');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    const ctx=canvas.getContext('2d');
+
+    //描边宽度
+    ctx.lineWidth=3;
+    //颜色
+    ctx.strokeStyle='maroon';
+    ctx.fillStyle='blue';
+
+    /*font 设置字号字体*/
+    ctx.font="72px Arial";
+
+    /*描边文字 strokeText(text, x, y [, maxWidth])*/
+    //ctx.strokeText('canvas',100,100,50);
+
+    /*填充文字 fillText(text, x, y [, maxWidth])*/
+    ctx.fillText('canvas',100,100);
+
+</script>
+</body>
+</html>

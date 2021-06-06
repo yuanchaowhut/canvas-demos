@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas绘图</title>
+    <style>
+        #canvas{
+            background: cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="700">
+        <p>不兼容</p>
+    </canvas>
+    <script>
+        const canvas=document.getElementById('canvas');
+        /*canvas.width=300;
+        canvas.height=150;*/
+        //画笔
+        const ctx=canvas.getContext('2d');
+        // const ctx=canvas.getContext('webgl');
+        //颜色
+        ctx.fillStyle='red';
+        ctx.fillRect(50,50,400,200);
+
+
+    </script>
+</body>
+</html>

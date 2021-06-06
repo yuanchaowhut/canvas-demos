@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本</title>
+    <style>
+        body{margin: 0;overflow: hidden}
+        #canvas{background: antiquewhite;}
+    </style>
+</head>
+<body>
+<!--123456-->
+<canvas id="canvas"></canvas>
+<script>
+    const canvas=document.getElementById('canvas');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    const ctx=canvas.getContext('2d');
+
+    //文字内容
+    const text='canvas-------------';
+    //矩形左上角位置
+    const [x,y]=[50,100];
+    //矩形宽度
+    const height=60;
+
+    //字体
+    ctx.font='36px Arial';
+    //水平居中
+    ctx.textAlign='center';
+    //垂直居中
+    ctx.textBaseline='middle';
+    //文字宽度
+    const width=ctx.measureText(text).width+36;
+    //绘制矩形
+    ctx.strokeRect(x,y,width,height);
+    //绘制文字
+    ctx.fillText(text,x+width/2,y+height/2);
+
+</script>
+</body>
+</html>

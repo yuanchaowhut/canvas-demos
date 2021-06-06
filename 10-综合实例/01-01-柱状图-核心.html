@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>柱状图核心</title>
+    <style>
+        body{margin: 0;overflow: hidden}
+        #canvas{background: antiquewhite;}
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    const canvas=document.getElementById('canvas');
+    const [width,height]=[window.innerWidth,window.innerHeight];
+    canvas.width=width;
+    canvas.height=height;
+    const  ctx=canvas.getContext('2d');
+
+    /*------ 1.建立柱体 Rectangle -------*/
+    /*建立矩形对象 Rectangle
+    * 属性：
+    * width 宽度
+    * height 高度
+    * color 颜色
+    * pos 位置
+    * 方法：
+    * draw(ctx)
+    * */
+
+
+    /*实例化柱体
+    * 设置尺寸、颜色、位置、文本内容
+    * */
+
+
+
+    /*------ 2.建立提示框 Tip -------*/
+    /*建立提示框 Tip
+    * 属性：
+    * text 文字内容
+    * pos 位置
+    * visible 可见性
+    * 方法：
+    * draw(ctx)
+    *
+    * 绘制背景：
+    * 设置填充色 'rgba(0,0,0,0.6)'
+    * 设置字体 '12px Arial'
+    * 获取文字宽度width： measureText(text).width
+    * 绘制填充矩形：fillRect(x,y,width,30)
+    *
+    * 绘制文字：
+    * 水平居中
+    * 垂直居中
+    * 填充色为白色
+    * 绘制文字 fillText(text,x+width/2,y+15);
+    *
+    * */
+
+
+    /*实例化提示框*/
+
+
+
+    /*------ 3.鼠标划入划出的事件 -------*/
+    /*监听鼠标移动事件*/
+    canvas.addEventListener('mousemove',mousemoveFn);
+    function mousemoveFn(event){
+        /*获取鼠标在canvas 中的相对位置*/
+
+
+        /*判断鼠标是否在矩形中
+        * 如果在，就显示提示文字，设置文字位置和内容
+        * 如果不在，就隐藏提示文字
+        * */
+
+
+
+        /*按需渲染*/
+
+    }
+
+
+    //渲染
+    render();
+    //渲染方法
+    function render(){
+        //清理canvas 画布
+
+        //绘制柱体
+
+        //绘制提示框
+
+    }
+
+    //判断点是否矩形中
+    function containPoint(obj,mousePos){
+        const {x,y}=mousePos;
+        const {pos,width,height}=obj;
+        const t=y>pos.y;
+        const b=y<pos.y+height;
+        const l=x>pos.x;
+        const r=x<pos.x+width;
+        return t&&b&&l&&r;
+    }
+    //获取鼠标位置
+    function getMousePos(event){
+        //获取鼠标位置
+        const {clientX,clientY}=event;
+        //获取canvas 边界位置
+        const {top,left}=canvas.getBoundingClientRect();
+        //计算鼠标在canvas 中的位置
+        const x=clientX-left;
+        const y=clientY-top;
+        return {x,y};
+    }
+
+</script>
+</body>
+</html>

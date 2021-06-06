@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>霓虹灯</title>
+    <style>
+        html{height: 100%;overflow: hidden;}
+        body{height: 100%;margin: 0;}
+        #canvas{
+            background: #000;
+        }
+    </style>
+
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    const canvas=document.getElementById('canvas');
+    //canvas充满窗口
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    //画笔
+    const  ctx=canvas.getContext('2d');
+
+    //颜色数组
+    const colors=['red','yellow'];
+    const dashOffset=[0,6];
+    const states=[0,1];
+    function draw(){
+        ctx.save();
+        //偏移坐标系
+        ctx.beginPath();
+        ctx.strokeStyle=colors[states[0]];
+        ctx.lineWidth=3;
+        ctx.setLineDash([6]);
+        ctx.lineDashOffset=dashOffset[states[0]];
+        ctx.font='bold 200px arial';
+        ctx.shadowColor='orange';
+        for(let i=8;i>0;i-=1){
+            ctx.shadowBlur=i;
+            ctx.strokeText('夜巴黎',80,250);
+        }
+        ctx.restore();
+    }
+
+    setInterval(function(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        draw();
+        states.reverse();
+    },500);
+
+
+
+
+</script>
+</body>
+</html>
